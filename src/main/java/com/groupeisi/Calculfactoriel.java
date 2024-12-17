@@ -2,16 +2,26 @@ package com.groupeisi;
 
 public class Calculfactoriel {
 
-        // Méthode statique pour calculer le factoriel d'un nombre
-        public static long calculateFactorial(int number) {
+    public static long calculateFactorial(int number) {
 
-            long result = 1; // Initialisation du résultat à 1
-
-            for (int i = 1; i <= number; i++) { // Boucle de 1 à number inclus
-
-                result *= i; // Multiplie result par i à chaque itération
-            }
-            return result; // Retourne le résultat final
+        // Vérifie si le nombre est négatif, ce qui est invalide pour le calcul du factoriel
+        if (number < 0) {
+            // Lève une exception pour signaler que le paramètre est incorrect
+            throw new IllegalArgumentException("Le nombre ne peut pas être négatif");
         }
+
+        // Initialisation du résultat à 1 (valeur neutre pour la multiplication)
+        long result = 1;
+
+        // Boucle pour calculer le factoriel.
+        // On multiplie successivement les nombres de 1 jusqu'à "number".
+        for (int i = 1; i <= number; i++) {
+            result *= i; // Multiplie le résultat courant par i
+        }
+
+        // Retourne le résultat final, qui est le factoriel de "number"
+        return result;
+    }
+
 }
 
